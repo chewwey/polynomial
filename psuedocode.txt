@@ -1,0 +1,79 @@
+declare size_t line Limit
+
+fucntion loadfile(file , linelenght)
+    fp = file
+
+    declare pointer to pointer line
+
+    declare buffer (to hold vaule from each polynomial)
+    declare i (count for pointer line -> poly)
+
+    while(fgets(buffer,line Limit,file)){
+        //check if line lim
+        if i == lineLimit{
+            Linelim * 2
+            realloc line by size_t 
+        }
+        strlength = strlen(buffer)
+        char *poly = malloc(strlen) * sizeof(char)
+        strcopy(poly,buffer) copy buffer to poly 
+        line[i] = poly
+        i++
+    }
+    //change linelenght
+    *linelenght = i
+
+    return line
+
+//change each line to integer array
+fuction convert_int(char *arr,int *m){
+    m is for column
+    stringlength = strlen(arr)
+    int i
+    declare temp so we don't actually work with data
+    //copy arr to temp by memcpy
+    memcpy(temp,arr,sizeof(char) * len)
+
+    //declare a to hold array of int
+    int *a = (int*)malloc(256 * sizeof(int))
+    //seperate string "," by strtok
+    char* vaule = strtok(temp,", ")
+    while(vaule){
+        //declare seperated integer and change vaule which is string vaule to integer
+        int sepInt = atoi(vaule)
+        a[column] = sepInt
+        vaule = strtok(NULL,",")
+        column++
+    }
+    // realloc a because we know the column size
+    a = realloc(a,column * sizeof(int))
+    // change vaule of m 
+    *m = column
+    free(temp)
+    return a
+}
+
+fucntion printPoly(int* poly,int n){
+    // n is max column we get from convert_int
+    // i is power and poly[i] is coeffitient of each i
+    for int i = 0;i < n;i++{
+        print(poly[i])
+        if (i != 0)
+        print("x^i")
+        if (i != n - 1) // check if it not the last 
+        print("+")
+    }
+}
+
+
+// fucntion to printAll polynomial that imported from csv
+fucntion printAll(char **data,int linelenght){
+    declare max term of polynomial
+    int poly_max
+    for int i = 0; i < length;i++{
+        int *poly = convert_int(data[i],&polymax)
+        printf("%d: ",i) --> just to give user id to use it calculation
+        printPoly(poly,poly_max)
+        printf("\n")
+    } 
+}
